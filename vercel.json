@@ -1,0 +1,47 @@
+{
+
+  "version": 2,
+
+  "builds": [
+
+    {
+
+      "src": "package.json",
+
+      "use": "@vercel/static-build",
+
+      "config": { "distDir": "build" }
+
+    },
+
+    {
+
+      "src": "api/bot-manager.js",
+
+      "use": "@vercel/node"
+
+    }
+
+  ],
+
+  "routes": [
+
+    {
+
+      "src": "/api/(.*)",
+
+      "dest": "/api/bot-manager"
+
+    },
+
+    {
+
+      "src": "/(.*)",
+
+      "dest": "/"
+
+    }
+
+  ]
+
+}
